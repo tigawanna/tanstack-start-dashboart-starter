@@ -36,7 +36,6 @@ pnpm install
 ```
 
 
-
 ## 🚀 Development
 ```sh
 # Start development server
