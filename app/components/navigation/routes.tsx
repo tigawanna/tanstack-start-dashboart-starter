@@ -23,11 +23,5 @@ export const routes = [
     href: "/dashboard",
     icon: <LayoutDashboard />,
     children: dashboard_routes,
-  },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: <User />,
-    children: undefined,
-  },
+  }
 ] as const;

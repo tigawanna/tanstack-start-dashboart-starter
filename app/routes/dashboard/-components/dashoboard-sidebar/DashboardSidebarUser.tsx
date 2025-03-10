@@ -73,7 +73,7 @@ const avatarUrl = viewer.avatar_url
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="" />
             <DropdownMenuGroup>
               <Link to="/profile" className="w-full">
                 <DropdownMenuItem>

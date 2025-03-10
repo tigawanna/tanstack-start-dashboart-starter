@@ -16,7 +16,6 @@ import { Route as UsersLayoutImport } from './routes/users/layout'
 import { Route as DashboardLayoutImport } from './routes/dashboard/layout'
 import { Route as IndexImport } from './routes/index'
 import { Route as UsersIndexImport } from './routes/users/index'
-import { Route as ProfileIndexImport } from './routes/profile/index'
 import { Route as DashboardIndexImport } from './routes/dashboard/index'
 import { Route as AuthIndexImport } from './routes/auth/index'
 import { Route as AboutIndexImport } from './routes/about/index'
@@ -53,12 +52,6 @@ const UsersIndexRoute = UsersIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => UsersLayoutRoute,
-} as any)
-
-const ProfileIndexRoute = ProfileIndexImport.update({
-  id: '/profile/',
-  path: '/profile/',
-  getParentRoute: () => rootRoute,
 } as any)
 
 const DashboardIndexRoute = DashboardIndexImport.update({
@@ -144,13 +137,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof DashboardLayoutImport
     }
-    '/profile/': {
-      id: '/profile/'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/users/': {
       id: '/users/'
       path: '/'
@@ -213,7 +199,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutIndexRoute
   '/auth': typeof AuthIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
-  '/profile': typeof ProfileIndexRoute
   '/users/': typeof UsersIndexRoute
   '/dashboard/gists': typeof DashboardGistsIndexRoute
   '/dashboard/repos': typeof DashboardReposIndexRoute
@@ -225,7 +210,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutIndexRoute
   '/auth': typeof AuthIndexRoute
   '/dashboard': typeof DashboardIndexRoute
-  '/profile': typeof ProfileIndexRoute
   '/users': typeof UsersIndexRoute
   '/dashboard/gists': typeof DashboardGistsIndexRoute
   '/dashboard/repos': typeof DashboardReposIndexRoute
@@ -240,7 +224,6 @@ export interface FileRoutesById {
   '/about/': typeof AboutIndexRoute
   '/auth/': typeof AuthIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
-  '/profile/': typeof ProfileIndexRoute
   '/users/': typeof UsersIndexRoute
   '/dashboard/gists/': typeof DashboardGistsIndexRoute
   '/dashboard/repos/': typeof DashboardReposIndexRoute
@@ -256,7 +239,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/dashboard/'
-    | '/profile'
     | '/users/'
     | '/dashboard/gists'
     | '/dashboard/repos'
@@ -267,7 +249,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/dashboard'
-    | '/profile'
     | '/users'
     | '/dashboard/gists'
     | '/dashboard/repos'
@@ -280,7 +261,6 @@ export interface FileRouteTypes {
     | '/about/'
     | '/auth/'
     | '/dashboard/'
-    | '/profile/'
     | '/users/'
     | '/dashboard/gists/'
     | '/dashboard/repos/'
@@ -294,7 +274,6 @@ export interface RootRouteChildren {
   RedirectRoute: typeof RedirectRoute
   AboutIndexRoute: typeof AboutIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
-  ProfileIndexRoute: typeof ProfileIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -304,7 +283,6 @@ const rootRouteChildren: RootRouteChildren = {
   RedirectRoute: RedirectRoute,
   AboutIndexRoute: AboutIndexRoute,
   AuthIndexRoute: AuthIndexRoute,
-  ProfileIndexRoute: ProfileIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -322,8 +300,7 @@ export const routeTree = rootRoute
         "/users",
         "/redirect",
         "/about/",
-        "/auth/",
-        "/profile/"
+        "/auth/"
       ]
     },
     "/": {
@@ -355,9 +332,6 @@ export const routeTree = rootRoute
     "/dashboard/": {
       "filePath": "dashboard/index.tsx",
       "parent": "/dashboard"
-    },
-    "/profile/": {
-      "filePath": "profile/index.tsx"
     },
     "/users/": {
       "filePath": "users/index.tsx",
