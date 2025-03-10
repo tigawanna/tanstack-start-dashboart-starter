@@ -1,6 +1,13 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
-@import "./markdown.css";
+
+/* @import "./view-transition/angled-transition.css";
+@import "./view-transition/flip-transition.css";
+@import "./view-transition/slides-transition.css";
+@import "./view-transition/vertical-transition.css";
+@import "./view-transition/wipe-transition.css"; */
+
+
 
 
 @plugin "daisyui" {

@@ -3,6 +3,11 @@ import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
+import "@/styles/view-transition/angled-transition.css";
+import "@/styles/view-transition/flip-transition.css";
+import "@/styles/view-transition/slides-transition.css";
+import "@/styles/view-transition/vertical-transition.css";
+import "@/styles/view-transition/wipe-transition.css";
 import { seo } from '~/utils/seo'
 import { RootDocument } from './-components/RootDocumant';
 
