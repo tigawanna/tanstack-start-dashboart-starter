@@ -11,8 +11,8 @@
 
 
 @plugin "daisyui" {
-  /* themes: cupcacke --default, forest --prefersdark; */
-  themes: all;
+  themes: wireframe --default, forest --prefersdark;
+  /* themes: all; */
   logs: false;
 }
 
@@ -84,7 +84,7 @@
   --border: var(--color-base-content);
   --input: var(--color-base-100);
   --ring: var(--color-primary);
-  --radius: var(--border-radius);
+   --radius: var(--radius-box);
   --chart-1: var(--color-accent);
   --chart-2: var(--color-info);
   --chart-3: var(--color-succent);
