@@ -1,5 +1,5 @@
 import { useViewer } from "@/lib/viewer/use-viewer";
-import { BadgeCheck, Bell, ChevronsUpDown, ShieldCheck, User } from "lucide-react";
+import { BadgeCheck, Bell, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/avatar";
 import {
   DropdownMenu,
@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn/dropdown-menu";
 import { Link } from "@tanstack/react-router";
+
 interface MainNavbarUserProps {
   compact?: boolean;
 }
@@ -25,11 +26,12 @@ export function MainNavbarUser({ compact }: MainNavbarUserProps) {
     );
   }
   const avatarUrl = viewer.avatar_url;
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         {/* <SidebarMenuButton size="lg" className=""> */}
-        <div className="flex justify-center gap-2">
+        <div className="flex gap-2 items-center">
           <Avatar className="h-8 w-8 rounded-full bg-base-content hover:bg-base-300">
             <AvatarImage src={avatarUrl} alt={viewer.name} />
             <AvatarFallback className="rounded-lg">{viewer.name?.slice(0, 2)}</AvatarFallback>
@@ -53,7 +55,7 @@ export function MainNavbarUser({ compact }: MainNavbarUserProps) {
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar className="h-8 w-8 rounded-lg">
               <AvatarImage src={avatarUrl} alt={viewer.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              <AvatarFallback className="rounded-lg">{viewer.name?.slice(0, 2)}</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="flex items-center gap-1 truncate font-semibold">{viewer.name} </span>
@@ -65,7 +67,7 @@ export function MainNavbarUser({ compact }: MainNavbarUserProps) {
 
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link to="/profile" className="w-full">
+          <Link to="/about" className="w-full">
             <DropdownMenuItem>
               <BadgeCheck />
               Account
@@ -89,13 +91,7 @@ export function MainNavbarUser({ compact }: MainNavbarUserProps) {
               mutation={logoutMutation}
             /> */}
         <div className="flex gap-3 w-full">
-          <button
-            className="btn btn-error max-w-[98%] w-full"
-            onClick={() => {
-              logoutMutation();
-            }}>
-            Logout
-          </button>
+          {/* <logoutMutation /> */}
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

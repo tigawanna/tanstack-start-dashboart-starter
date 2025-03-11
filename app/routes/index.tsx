@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MainNavbar } from "~/components/navigation/navbar/MainNavbar";
+import { ResponsiveGenericToolbar } from "~/components/navigation/navbar/ResponsiveGenericToolbar";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -8,10 +8,11 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="flex h-full min-h-screen w-full flex-col items-center">
-      <MainNavbar />
+      <ResponsiveGenericToolbar>
       <div className="flex h-full min-h-screen w-full flex-col items-center justify-center">
         <h3>Welcome Home!!!</h3>
       </div>
+      </ResponsiveGenericToolbar>
     </div>
   );
 }

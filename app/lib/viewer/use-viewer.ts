@@ -1,4 +1,4 @@
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions, useMutation, useSuspenseQuery } from "@tanstack/react-query";
 
 export function viewerQueryOptions() {
   return queryOptions({
@@ -9,20 +9,23 @@ export function viewerQueryOptions() {
     staleTime: 1000 * 60 * 60,
   });
 }
+function logoutMutationFn() {
+  return new Promise<boolean>((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(true);
+      } catch (error) {
+        resolve(false);
+      }
+    });
+  });
+}
 export function useViewer() {
   const viewerQuery = useSuspenseQuery(viewerQueryOptions());
+  const logoutMutation = useMutation({
+    mutationFn: logoutMutationFn,
+  })
   const viewer = viewerQuery.data;
-  function logoutMutation() {
-    return new Promise<boolean>((resolve, reject) => {
-      setTimeout(() => {
-        try {
-          resolve(true);
-        } catch (error) {
-          resolve(false);
-        }
-      });
-    });
-  }
   return { viewer, logoutMutation };
 }
 
