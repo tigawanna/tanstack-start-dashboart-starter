@@ -1,37 +1,36 @@
+
+import { useState } from "react";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/shadcn/select";
-import { useState } from "react";
 interface AllDaisyUiThemesProps {
   compact?: boolean
 }
-
+;
 export function AllDaisyUiThemes({compact}: AllDaisyUiThemesProps) {
   const allDaisyUiThems = [
-    "forest",
-    "cupacake",
-    "emerald",
-    "corporate",
-    "synthwave",
-    "retro",
-    "luxury",
-    "dracula",
-    "night",
-    "cmyk",
-    "autumn",
-    "winter",
-    "aqua",
-    "lofi",
-    "pastel",
-    "fantasy",
     "wireframe",
-    "black",
+    "forest",
+    "valentine",
+    // "emerald",
+    // "corporate",
+    // "synthwave",
+    // "retro",
+    // "luxury",
+    // "dracula",
+    // "night",
+    // "cmyk",
+    // "autumn",
+    // "winter",
+    // "aqua",
+    // "lofi",
+    // "pastel",
+    // "fantasy",
+    // "black",
   ];
   // const { theme, updateTheme } = useTheme();
   const [theme, setTheme] = useState(allDaisyUiThems[0]);
